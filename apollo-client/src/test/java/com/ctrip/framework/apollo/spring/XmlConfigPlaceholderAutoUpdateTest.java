@@ -47,7 +47,7 @@ public class XmlConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegratio
     Properties newProperties = assembleProperties(TIMEOUT_PROPERTY, String.valueOf(newTimeout),
         BATCH_PROPERTY, String.valueOf(newBatch));
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -82,7 +82,7 @@ public class XmlConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegratio
     Properties newProperties = assembleProperties(TIMEOUT_PROPERTY, String.valueOf(newTimeout),
         BATCH_PROPERTY, String.valueOf(newBatch));
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -117,7 +117,7 @@ public class XmlConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegratio
         String.valueOf(newTimeout));
 
     applicationConfig
-        .onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newApplicationProperties);
+        .onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newApplicationProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -126,7 +126,7 @@ public class XmlConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegratio
 
     Properties newFxApolloProperties = assembleProperties(BATCH_PROPERTY, String.valueOf(newBatch));
 
-    fxApolloConfig.onRepositoryChange(FX_APOLLO_NAMESPACE, newFxApolloProperties);
+    fxApolloConfig.onRepositoryChange(FX_APOLLO_NAMESPACE, newFxApolloProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -160,7 +160,7 @@ public class XmlConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegratio
     Properties newFxApolloProperties = assembleProperties(TIMEOUT_PROPERTY,
         String.valueOf(someNewTimeout), BATCH_PROPERTY, String.valueOf(someNewBatch));
 
-    fxApolloConfig.onRepositoryChange(FX_APOLLO_NAMESPACE, newFxApolloProperties);
+    fxApolloConfig.onRepositoryChange(FX_APOLLO_NAMESPACE, newFxApolloProperties,"");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -191,7 +191,7 @@ public class XmlConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegratio
         String.valueOf(newTimeout), BATCH_PROPERTY, String.valueOf(newBatch));
 
     applicationConfig
-        .onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newApplicationProperties);
+        .onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newApplicationProperties,"");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -226,7 +226,7 @@ public class XmlConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegratio
         String.valueOf(initialTimeout), anotherIrrelevantKey, String.valueOf(anotherIrrelevantValue));
 
     applicationConfig
-        .onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newApplicationProperties);
+        .onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newApplicationProperties,"");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -253,7 +253,7 @@ public class XmlConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegratio
 
     Properties newProperties = new Properties();
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties,"");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -285,7 +285,7 @@ public class XmlConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegratio
 
     Properties newProperties = new Properties();
 
-    applicationConfig.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    applicationConfig.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties,"");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -313,7 +313,7 @@ public class XmlConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegratio
 
     Properties newProperties = assembleProperties(TIMEOUT_PROPERTY, String.valueOf(newTimeout));
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties,"");
 
     TimeUnit.MILLISECONDS.sleep(300);
 
@@ -343,7 +343,7 @@ public class XmlConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegratio
     Properties newProperties = assembleProperties(TIMEOUT_PROPERTY, String.valueOf(newTimeout),
         BATCH_PROPERTY, newBatch);
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties,"");
 
     TimeUnit.MILLISECONDS.sleep(300);
 
@@ -373,7 +373,7 @@ public class XmlConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegratio
     Properties newProperties = assembleProperties(TIMEOUT_PROPERTY, String.valueOf(newTimeout),
         BATCH_PROPERTY, String.valueOf(newBatch));
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties,"");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -404,7 +404,7 @@ public class XmlConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegratio
     Properties newProperties = assembleProperties(TIMEOUT_PROPERTY, String.valueOf(newTimeout),
         BATCH_PROPERTY, String.valueOf(newBatch));
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties,"");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -480,7 +480,7 @@ public class XmlConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegratio
     newProperties.setProperty("dateFormat", String.valueOf(someDateFormat));
     newProperties.setProperty("dateProperty", simpleDateFormat.format(someNewDate));
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties,"");
 
     TimeUnit.MILLISECONDS.sleep(100);
 

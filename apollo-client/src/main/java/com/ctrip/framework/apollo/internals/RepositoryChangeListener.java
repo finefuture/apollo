@@ -10,6 +10,7 @@ public interface RepositoryChangeListener {
    * Invoked when config repository changes.
    * @param namespace the namespace of this repository change
    * @param newProperties the properties after change
+   * @param operator change operator
    */
-  public void onRepositoryChange(String namespace, Properties newProperties);
+  public void onRepositoryChange(String namespace, Properties newProperties, String operator);
 }

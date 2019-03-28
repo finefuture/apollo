@@ -84,11 +84,15 @@ public class ConfigController {
     List<Release> releases = Lists.newLinkedList();
 
     String appClusterNameLoaded = clusterName;
+    String operator = null;
     if (!ConfigConsts.NO_APPID_PLACEHOLDER.equalsIgnoreCase(appId)) {
       Release currentAppRelease = configService.loadConfig(appId, clientIp, appId, clusterName, namespace,
           dataCenter, clientMessages);
 
       if (currentAppRelease != null) {
+        operator = currentAppRelease.getDataChangeCreatedBy() == null ?
+                (currentAppRelease.getDataChangeLastModifiedBy() == null ? "queryConfig-default" : currentAppRelease.getDataChangeLastModifiedBy())
+                : currentAppRelease.getDataChangeCreatedBy();
         releases.add(currentAppRelease);
         //we have cluster search process, so the cluster name might be overridden
         appClusterNameLoaded = currentAppRelease.getClusterName();
@@ -129,6 +133,7 @@ public class ConfigController {
 
     ApolloConfig apolloConfig = new ApolloConfig(appId, appClusterNameLoaded, originalNamespace,
         mergedReleaseKey);
+    apolloConfig.setOperator(operator);
     apolloConfig.setConfigurations(mergeReleaseConfigurations(releases));
 
     Tracer.logEvent("Apollo.Config.Found", assembleKey(appId, appClusterNameLoaded,

@@ -100,7 +100,7 @@ public class XmlConfigFileTest {
 
     configFile.addChangeListener(someListener);
 
-    configFile.onRepositoryChange(someNamespace, anotherProperties);
+    configFile.onRepositoryChange(someNamespace, anotherProperties,"");
 
     ConfigFileChangeEvent changeEvent = configFileChangeFuture.get(500, TimeUnit.MILLISECONDS);
 
@@ -136,7 +136,7 @@ public class XmlConfigFileTest {
 
     configFile.addChangeListener(someListener);
 
-    configFile.onRepositoryChange(someNamespace, anotherProperties);
+    configFile.onRepositoryChange(someNamespace, anotherProperties, "");
 
     ConfigFileChangeEvent changeEvent = configFileChangeFuture.get(500, TimeUnit.MILLISECONDS);
 
@@ -172,7 +172,7 @@ public class XmlConfigFileTest {
 
     configFile.addChangeListener(someListener);
 
-    configFile.onRepositoryChange(someNamespace, anotherProperties);
+    configFile.onRepositoryChange(someNamespace, anotherProperties, "");
 
     ConfigFileChangeEvent changeEvent = configFileChangeFuture.get(500, TimeUnit.MILLISECONDS);
 
@@ -197,7 +197,7 @@ public class XmlConfigFileTest {
     assertFalse(configFile.hasContent());
     assertNull(configFile.getContent());
 
-    configFile.onRepositoryChange(someNamespace, someProperties);
+    configFile.onRepositoryChange(someNamespace, someProperties,"");
 
     assertTrue(configFile.hasContent());
     assertEquals(someValue, configFile.getContent());

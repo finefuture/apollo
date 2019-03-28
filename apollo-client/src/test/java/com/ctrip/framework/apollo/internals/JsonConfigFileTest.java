@@ -100,7 +100,7 @@ public class JsonConfigFileTest {
     ConfigSourceType anotherSourceType = ConfigSourceType.REMOTE;
     when(configRepository.getSourceType()).thenReturn(anotherSourceType);
 
-    configFile.onRepositoryChange(someNamespace, anotherProperties);
+    configFile.onRepositoryChange(someNamespace, anotherProperties,"");
 
     assertEquals(anotherValue, configFile.getContent());
     assertEquals(anotherSourceType, configFile.getSourceType());
@@ -124,7 +124,7 @@ public class JsonConfigFileTest {
     assertNull(configFile.getContent());
     assertEquals(ConfigSourceType.NONE, configFile.getSourceType());
 
-    configFile.onRepositoryChange(someNamespace, someProperties);
+    configFile.onRepositoryChange(someNamespace, someProperties,"");
 
     assertTrue(configFile.hasContent());
     assertEquals(someValue, configFile.getContent());

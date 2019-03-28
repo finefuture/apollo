@@ -17,6 +17,8 @@ public class ApolloConfig {
 
   private String releaseKey;
 
+  private String operator;
+
   public ApolloConfig() {
   }
 
@@ -50,6 +52,10 @@ public class ApolloConfig {
     return configurations;
   }
 
+  public String getOperator() {
+    return operator;
+  }
+
   public void setAppId(String appId) {
     this.appId = appId;
   }
@@ -70,6 +76,10 @@ public class ApolloConfig {
     this.configurations = configurations;
   }
 
+  public void setOperator(String operator) {
+    this.operator = operator;
+  }
+
   @Override
   public String toString() {
     final StringBuilder sb = new StringBuilder("ApolloConfig{");
@@ -78,6 +88,7 @@ public class ApolloConfig {
     sb.append(", namespaceName='").append(namespaceName).append('\'');
     sb.append(", configurations=").append(configurations);
     sb.append(", releaseKey='").append(releaseKey).append('\'');
+    sb.append(", operator='").append(operator).append('\'');
     sb.append('}');
     return sb.toString();
   }

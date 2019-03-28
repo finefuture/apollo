@@ -143,7 +143,7 @@ public class RemoteConfigRepositoryTest {
 
     remoteConfigRepository.sync();
 
-    verify(someListener, times(1)).onRepositoryChange(eq(someNamespace), captor.capture());
+    verify(someListener, times(1)).onRepositoryChange(eq(someNamespace), captor.capture(),"");
 
     assertEquals(newConfigurations, captor.getValue());
 
@@ -168,7 +168,7 @@ public class RemoteConfigRepositoryTest {
         return null;
       }
 
-    }).when(someListener).onRepositoryChange(any(String.class), any(Properties.class));
+    }).when(someListener).onRepositoryChange(any(String.class), any(Properties.class),"");
 
     RemoteConfigRepository remoteConfigRepository = new RemoteConfigRepository(someNamespace);
     remoteConfigRepository.addChangeListener(someListener);
@@ -194,7 +194,7 @@ public class RemoteConfigRepositoryTest {
 
     remoteConfigLongPollService.stopLongPollingRefresh();
 
-    verify(someListener, times(1)).onRepositoryChange(eq(someNamespace), captor.capture());
+    verify(someListener, times(1)).onRepositoryChange(eq(someNamespace), captor.capture(),"");
     assertEquals(newConfigurations, captor.getValue());
 
     final ArgumentCaptor<HttpRequest> httpRequestArgumentCaptor = ArgumentCaptor.forClass(HttpRequest.class);

@@ -105,7 +105,7 @@ public class SimpleConfigTest {
     ConfigSourceType anotherSourceType = ConfigSourceType.REMOTE;
     when(configRepository.getSourceType()).thenReturn(anotherSourceType);
 
-    config.onRepositoryChange(someNamespace, anotherProperties);
+    config.onRepositoryChange(someNamespace, anotherProperties, "");
 
     ConfigChangeEvent changeEvent = configChangeFuture.get(500, TimeUnit.MILLISECONDS);
 

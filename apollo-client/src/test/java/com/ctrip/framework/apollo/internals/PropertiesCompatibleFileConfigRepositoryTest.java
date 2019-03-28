@@ -113,6 +113,6 @@ public class PropertiesCompatibleFileConfigRepositoryTest {
     configFileRepository.onChange(someChangeEvent);
 
     assertSame(anotherProperties, configFileRepository.getConfig());
-    verify(someListener, times(1)).onRepositoryChange(someNamespaceName, anotherProperties);
+    verify(someListener, times(1)).onRepositoryChange(someNamespaceName, anotherProperties,"");
   }
 }

@@ -195,7 +195,7 @@ public class DefaultConfigTest {
     Properties anotherProperties = new Properties();
     anotherProperties.setProperty(someKey, String.valueOf(anotherValue));
 
-    defaultConfig.onRepositoryChange(someNamespace, anotherProperties);
+    defaultConfig.onRepositoryChange(someNamespace, anotherProperties, "");
 
     assertEquals(anotherValue, defaultConfig.getIntProperty(someKey, someDefaultValue));
   }
@@ -485,7 +485,7 @@ public class DefaultConfigTest {
 
     assertArrayEquals(values, defaultConfig.getArrayProperty(someKey, someDelimiter, someDefaultValue));
 
-    defaultConfig.onRepositoryChange(someNamespace, anotherProperties);
+    defaultConfig.onRepositoryChange(someNamespace, anotherProperties, "");
 
     assertArrayEquals(anotherValues, defaultConfig.getArrayProperty(someKey, someDelimiter, someDefaultValue));
   }
@@ -637,7 +637,7 @@ public class DefaultConfigTest {
     ConfigSourceType anotherSourceType = ConfigSourceType.REMOTE;
     when(configRepository.getSourceType()).thenReturn(anotherSourceType);
 
-    defaultConfig.onRepositoryChange(someNamespace, newProperties);
+    defaultConfig.onRepositoryChange(someNamespace, newProperties, "");
 
     ConfigChangeEvent changeEvent = configChangeFuture.get(500, TimeUnit.MILLISECONDS);
 
@@ -861,7 +861,7 @@ public class DefaultConfigTest {
 
     when(configRepository.getSourceType()).thenReturn(someSourceType);
 
-    defaultConfig.onRepositoryChange(someNamespace, someProperties);
+    defaultConfig.onRepositoryChange(someNamespace, someProperties, "");
 
     assertEquals(someSourceType, defaultConfig.getSourceType());
     assertEquals(someValue, defaultConfig.getProperty(someKey, someDefaultValue));

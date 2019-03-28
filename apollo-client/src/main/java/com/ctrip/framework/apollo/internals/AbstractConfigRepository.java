@@ -44,10 +44,10 @@ public abstract class AbstractConfigRepository implements ConfigRepository {
     m_listeners.remove(listener);
   }
 
-  protected void fireRepositoryChange(String namespace, Properties newProperties) {
+  protected void fireRepositoryChange(String namespace, Properties newProperties, String operator) {
     for (RepositoryChangeListener listener : m_listeners) {
       try {
-        listener.onRepositoryChange(namespace, newProperties);
+        listener.onRepositoryChange(namespace, newProperties, operator);
       } catch (Throwable ex) {
         Tracer.logError(ex);
         logger.error("Failed to invoke repository change listener {}", listener.getClass(), ex);

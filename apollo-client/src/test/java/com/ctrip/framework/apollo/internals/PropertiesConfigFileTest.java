@@ -99,7 +99,7 @@ public class PropertiesConfigFileTest {
 
     configFile.addChangeListener(someListener);
 
-    configFile.onRepositoryChange(someNamespace, anotherProperties);
+    configFile.onRepositoryChange(someNamespace, anotherProperties, "");
 
     ConfigFileChangeEvent changeEvent = configFileChangeFuture.get(500, TimeUnit.MILLISECONDS);
 
@@ -126,7 +126,7 @@ public class PropertiesConfigFileTest {
     assertFalse(configFile.hasContent());
     assertNull(configFile.getContent());
 
-    configFile.onRepositoryChange(someNamespace, someProperties);
+    configFile.onRepositoryChange(someNamespace, someProperties, "");
 
     assertTrue(configFile.hasContent());
     assertTrue(configFile.getContent().contains(String.format("%s=%s", someKey, someValue)));

@@ -13,6 +13,7 @@ public class ConfigChange {
   private String oldValue;
   private String newValue;
   private PropertyChangeType changeType;
+  private String operator;
 
   /**
    * Constructor.
@@ -47,6 +48,10 @@ public class ConfigChange {
     return changeType;
   }
 
+  public String getOperator() {
+    return operator;
+  }
+
   public void setOldValue(String oldValue) {
     this.oldValue = oldValue;
   }
@@ -57,6 +62,10 @@ public class ConfigChange {
 
   public void setChangeType(PropertyChangeType changeType) {
     this.changeType = changeType;
+  }
+
+  public void setOperator(String operator) {
+    this.operator = operator;
   }
 
   public String getNamespace() {
@@ -71,6 +80,7 @@ public class ConfigChange {
     sb.append(", oldValue='").append(oldValue).append('\'');
     sb.append(", newValue='").append(newValue).append('\'');
     sb.append(", changeType=").append(changeType);
+    sb.append(", operator=").append(operator);
     sb.append('}');
     return sb.toString();
   }

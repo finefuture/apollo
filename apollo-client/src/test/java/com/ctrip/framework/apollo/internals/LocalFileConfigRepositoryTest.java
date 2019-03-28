@@ -174,11 +174,11 @@ public class LocalFileConfigRepositoryTest {
     ConfigSourceType anotherSourceType = ConfigSourceType.NONE;
     when(upstreamRepo.getSourceType()).thenReturn(anotherSourceType);
 
-    localFileConfigRepository.onRepositoryChange(someNamespace, anotherProperties);
+    localFileConfigRepository.onRepositoryChange(someNamespace, anotherProperties, "");
 
     final ArgumentCaptor<Properties> captor = ArgumentCaptor.forClass(Properties.class);
 
-    verify(someListener, times(1)).onRepositoryChange(eq(someNamespace), captor.capture());
+    verify(someListener, times(1)).onRepositoryChange(eq(someNamespace), captor.capture(),"");
 
     assertEquals(anotherProperties, captor.getValue());
     assertEquals(anotherSourceType, localFileConfigRepository.getSourceType());

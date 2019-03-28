@@ -69,7 +69,7 @@ public abstract class AbstractConfigFile implements ConfigFile, RepositoryChange
   protected abstract void update(Properties newProperties);
 
   @Override
-  public synchronized void onRepositoryChange(String namespace, Properties newProperties) {
+  public synchronized void onRepositoryChange(String namespace, Properties newProperties, String operator) {
     if (newProperties.equals(m_configProperties.get())) {
       return;
     }

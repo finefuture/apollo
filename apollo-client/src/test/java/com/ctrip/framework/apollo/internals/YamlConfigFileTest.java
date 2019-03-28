@@ -143,7 +143,7 @@ public class YamlConfigFileTest {
     ConfigSourceType anotherSourceType = ConfigSourceType.REMOTE;
     when(configRepository.getSourceType()).thenReturn(anotherSourceType);
 
-    configFile.onRepositoryChange(someNamespace, anotherProperties);
+    configFile.onRepositoryChange(someNamespace, anotherProperties,"");
 
     assertEquals(anotherValue, configFile.getContent());
     assertEquals(anotherSourceType, configFile.getSourceType());
@@ -173,7 +173,7 @@ public class YamlConfigFileTest {
     assertEquals(ConfigSourceType.NONE, configFile.getSourceType());
     assertTrue(configFile.asProperties().isEmpty());
 
-    configFile.onRepositoryChange(someNamespace, someProperties);
+    configFile.onRepositoryChange(someNamespace, someProperties,"");
 
     assertTrue(configFile.hasContent());
     assertEquals(someValue, configFile.getContent());

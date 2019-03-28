@@ -140,7 +140,7 @@ public class RemoteConfigRepository extends AbstractConfigRepository {
       if (previous != current) {
         logger.debug("Remote Config refreshed!");
         m_configCache.set(current);
-        this.fireRepositoryChange(m_namespace, this.getConfig());
+        this.fireRepositoryChange(m_namespace, this.getConfig(), current.getOperator());
       }
 
       if (current != null) {

@@ -64,7 +64,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
     Properties newProperties =
         assembleProperties(TIMEOUT_PROPERTY, String.valueOf(newTimeout), BATCH_PROPERTY, String.valueOf(newBatch));
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -89,7 +89,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
     assertEquals(initialTimeout, bean.getTimeout());
     assertEquals(initialBatch, bean.getBatch());
 
-    configFile.onRepositoryChange("application.yaml", readYamlContentAsConfigFileProperties("case1-new.yaml"));
+    configFile.onRepositoryChange("application.yaml", readYamlContentAsConfigFileProperties("case1-new.yaml"), "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -122,7 +122,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
     Properties newProperties =
         assembleProperties(TIMEOUT_PROPERTY, String.valueOf(newTimeout), BATCH_PROPERTY, String.valueOf(newBatch));
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -152,7 +152,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
     assertEquals(initialTimeout, xmlBean.getTimeout());
     assertEquals(initialBatch, xmlBean.getBatch());
 
-    configFile.onRepositoryChange("application.yaml", readYamlContentAsConfigFileProperties("case1-new.yaml"));
+    configFile.onRepositoryChange("application.yaml", readYamlContentAsConfigFileProperties("case1-new.yaml"),"");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -189,7 +189,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
     Properties newProperties =
         assembleProperties(TIMEOUT_PROPERTY, String.valueOf(newTimeout), BATCH_PROPERTY, String.valueOf(newBatch));
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -219,7 +219,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
 
     Properties newApplicationProperties = assembleProperties(TIMEOUT_PROPERTY, String.valueOf(newTimeout));
 
-    applicationConfig.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newApplicationProperties);
+    applicationConfig.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newApplicationProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -228,7 +228,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
 
     Properties newFxApolloProperties = assembleProperties(BATCH_PROPERTY, String.valueOf(newBatch));
 
-    fxApolloConfig.onRepositoryChange(FX_APOLLO_NAMESPACE, newFxApolloProperties);
+    fxApolloConfig.onRepositoryChange(FX_APOLLO_NAMESPACE, newFxApolloProperties,"");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -261,7 +261,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
     Properties newFxApolloProperties = assembleProperties(TIMEOUT_PROPERTY, String.valueOf(someNewTimeout),
         BATCH_PROPERTY, String.valueOf(someNewBatch));
 
-    fxApolloConfig.onRepositoryChange(FX_APOLLO_NAMESPACE, newFxApolloProperties);
+    fxApolloConfig.onRepositoryChange(FX_APOLLO_NAMESPACE, newFxApolloProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -290,7 +290,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
     assertEquals(someTimeout, bean.getTimeout());
     assertEquals(someBatch, bean.getBatch());
 
-    configFile.onRepositoryChange("application.yml", readYamlContentAsConfigFileProperties("case2-new.yml"));
+    configFile.onRepositoryChange("application.yml", readYamlContentAsConfigFileProperties("case2-new.yml"), "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -318,7 +318,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
     Properties newApplicationProperties =
         assembleProperties(TIMEOUT_PROPERTY, String.valueOf(newTimeout), BATCH_PROPERTY, String.valueOf(newBatch));
 
-    applicationConfig.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newApplicationProperties);
+    applicationConfig.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newApplicationProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -342,7 +342,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
     assertEquals(initialTimeout, bean.getTimeout());
     assertEquals(DEFAULT_BATCH, bean.getBatch());
 
-    configFile.onRepositoryChange("application.yaml", readYamlContentAsConfigFileProperties("case3-new.yaml"));
+    configFile.onRepositoryChange("application.yaml", readYamlContentAsConfigFileProperties("case3-new.yaml"), "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -375,7 +375,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
     Properties newApplicationProperties = assembleProperties(TIMEOUT_PROPERTY, String.valueOf(initialTimeout),
         anotherIrrelevantKey, String.valueOf(anotherIrrelevantValue));
 
-    applicationConfig.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newApplicationProperties);
+    applicationConfig.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newApplicationProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -402,7 +402,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
 
     Properties newProperties = new Properties();
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -425,7 +425,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
     assertEquals(initialTimeout, bean.getTimeout());
     assertEquals(initialBatch, bean.getBatch());
 
-    configFile.onRepositoryChange("application.yaml", readYamlContentAsConfigFileProperties("case4-new.yaml"));
+    configFile.onRepositoryChange("application.yaml", readYamlContentAsConfigFileProperties("case4-new.yaml"), "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -455,7 +455,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
 
     Properties newProperties = new Properties();
 
-    applicationConfig.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    applicationConfig.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -483,7 +483,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
 
     Properties newProperties = assembleProperties(TIMEOUT_PROPERTY, String.valueOf(newTimeout));
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(300);
 
@@ -513,7 +513,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
     Properties newProperties =
         assembleProperties(TIMEOUT_PROPERTY, String.valueOf(newTimeout), BATCH_PROPERTY, newBatch);
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(300);
 
@@ -537,7 +537,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
     assertEquals(initialTimeout, bean.getTimeout());
     assertEquals(initialBatch, bean.getBatch());
 
-    configFile.onRepositoryChange("application.yaml", readYamlContentAsConfigFileProperties("case5-new.yaml"));
+    configFile.onRepositoryChange("application.yaml", readYamlContentAsConfigFileProperties("case5-new.yaml"), "");
 
     TimeUnit.MILLISECONDS.sleep(300);
 
@@ -567,7 +567,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
     Properties newProperties =
         assembleProperties(TIMEOUT_PROPERTY, String.valueOf(newTimeout), BATCH_PROPERTY, String.valueOf(newBatch));
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -598,7 +598,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
     Properties newProperties =
         assembleProperties(TIMEOUT_PROPERTY, String.valueOf(newTimeout), BATCH_PROPERTY, String.valueOf(newBatch));
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -629,7 +629,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
     Properties newProperties =
         assembleProperties(TIMEOUT_PROPERTY, String.valueOf(newTimeout), BATCH_PROPERTY, String.valueOf(newBatch));
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -660,7 +660,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
     Properties newProperties =
         assembleProperties(TIMEOUT_PROPERTY, String.valueOf(newTimeout), BATCH_PROPERTY, String.valueOf(newBatch));
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -691,7 +691,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
     Properties newProperties = assembleProperties(SOME_KEY_PROPERTY, newKeyValue, ANOTHER_KEY_PROPERTY, anotherKeyValue,
         String.format("%s.%s", newKeyValue, anotherKeyValue), String.valueOf(someNewValue));
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -719,7 +719,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
     Properties newProperties = assembleProperties(SOME_KEY_PROPERTY, someKeyValue, ANOTHER_KEY_PROPERTY,
         anotherKeyValue, String.format("%s.%s", someKeyValue, anotherKeyValue), String.valueOf(someNewValue));
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -748,7 +748,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
     Properties newProperties = assembleProperties(SOME_KEY_PROPERTY, someNewKeyValue, ANOTHER_KEY_PROPERTY,
         String.valueOf(someValue), someNewKeyValue, String.valueOf(someNewValue));
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -785,7 +785,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
 
     newProperties.setProperty(anotherNestedKey, String.valueOf(someNewValue));
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -867,7 +867,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
     newProperties.setProperty("dateProperty", simpleDateFormat.format(someNewDate));
     newProperties.setProperty("jsonProperty", someNewJsonProperty);
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 
@@ -905,7 +905,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
 
     Properties newProperties = assembleProperties("jsonProperty", someInvalidValue);
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(300);
 
@@ -932,7 +932,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
 
     Properties newProperties = new Properties();
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(300);
 
@@ -959,7 +959,7 @@ public class JavaConfigPlaceholderAutoUpdateTest extends AbstractSpringIntegrati
 
     Properties newProperties = new Properties();
 
-    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties);
+    config.onRepositoryChange(ConfigConsts.NAMESPACE_APPLICATION, newProperties, "");
 
     TimeUnit.MILLISECONDS.sleep(100);
 

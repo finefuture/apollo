@@ -113,14 +113,14 @@ public class LocalFileConfigRepository extends AbstractConfigRepository
   }
 
   @Override
-  public void onRepositoryChange(String namespace, Properties newProperties) {
+  public void onRepositoryChange(String namespace, Properties newProperties, String operator) {
     if (newProperties.equals(m_fileProperties)) {
       return;
     }
     Properties newFileProperties = new Properties();
     newFileProperties.putAll(newProperties);
     updateFileProperties(newFileProperties, m_upstream.getSourceType());
-    this.fireRepositoryChange(namespace, newProperties);
+    this.fireRepositoryChange(namespace, newProperties, operator);
   }
 
   @Override

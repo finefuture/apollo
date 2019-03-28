@@ -269,7 +269,7 @@ public class JavaConfigAnnotationTest extends AbstractSpringIntegrationTest {
     assertEquals(someValue, yamlConfig.getProperty(someKey, null));
     assertFalse(future.isDone());
 
-    configFile.onRepositoryChange(APPLICATION_YAML_NAMESPACE, readYamlContentAsConfigFileProperties("case9-new.yml"));
+    configFile.onRepositoryChange(APPLICATION_YAML_NAMESPACE, readYamlContentAsConfigFileProperties("case9-new.yml"),"");
 
     ConfigChangeEvent configChangeEvent = future.get(100, TimeUnit.MILLISECONDS);
     ConfigChange change = configChangeEvent.getChange(someKey);

@@ -127,7 +127,7 @@ public class DefaultConfig extends AbstractConfig implements RepositoryChangeLis
   }
 
   @Override
-  public synchronized void onRepositoryChange(String namespace, Properties newProperties) {
+  public synchronized void onRepositoryChange(String namespace, Properties newProperties, String operator) {
     if (newProperties.equals(m_configProperties.get())) {
       return;
     }
@@ -136,7 +136,7 @@ public class DefaultConfig extends AbstractConfig implements RepositoryChangeLis
     Properties newConfigProperties = new Properties();
     newConfigProperties.putAll(newProperties);
 
-    Map<String, ConfigChange> actualChanges = updateAndCalcConfigChanges(newConfigProperties, sourceType);
+    Map<String, ConfigChange> actualChanges = updateAndCalcConfigChanges(newConfigProperties, sourceType, operator);
 
     //check double checked result
     if (actualChanges.isEmpty()) {
@@ -154,7 +154,7 @@ public class DefaultConfig extends AbstractConfig implements RepositoryChangeLis
   }
 
   private Map<String, ConfigChange> updateAndCalcConfigChanges(Properties newConfigProperties,
-      ConfigSourceType sourceType) {
+      ConfigSourceType sourceType, String operator) {
     List<ConfigChange> configChanges =
         calcPropertyChanges(m_namespace, m_configProperties.get(), newConfigProperties);
 
@@ -183,10 +183,12 @@ public class DefaultConfig extends AbstractConfig implements RepositoryChangeLis
           if (change.getOldValue() != null) {
             change.setChangeType(PropertyChangeType.MODIFIED);
           }
+          change.setOperator(operator);
           actualChanges.put(change.getPropertyName(), change);
           break;
         case MODIFIED:
           if (!Objects.equals(change.getOldValue(), change.getNewValue())) {
+            change.setOperator(operator);
             actualChanges.put(change.getPropertyName(), change);
           }
           break;
@@ -197,6 +199,7 @@ public class DefaultConfig extends AbstractConfig implements RepositoryChangeLis
           if (change.getNewValue() != null) {
             change.setChangeType(PropertyChangeType.MODIFIED);
           }
+          change.setOperator(operator);
           actualChanges.put(change.getPropertyName(), change);
           break;
         default:
